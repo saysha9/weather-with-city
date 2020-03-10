@@ -15,13 +15,15 @@ app.get("/", function(req, res) {
 app.post("/", function(req, res) {
     
     // takes in the city from the html form, display in // console. Takes in as string.
-        var cityname = String(req.body.cityInput);
-        console.log(req.body.cityInput);
+        var lat = String(req.body.Latitude);
+        console.log(req.body.Latitude);
+        var lon = String(req.body.Longitude);
+        console.log(req.body.Longitude);
     
     //build up the URL for the JSON query, API Key is // secret and needs to be obtained by signup 
         const units = "imperial";
         const apiKey = "67f6b382921c1e89b39b20d4f9556f22";
-        const url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=" + units + "&APPID=" + apiKey;
+        const url = "https://api.openweathermap.org/data/2.5/weather?q=" + lat + lon + "&units=" + units + "&APPID=" + apiKey;
     
     // this gets the data from Open WeatherPI
     https.get(url, function(response){
